@@ -1,0 +1,26 @@
+<div class="section  d-flex align-items-center justify-content-center py-5">
+    <div class="container form d-flex align-items-center justify-content-center">
+        <form [formGroup]='loginForm' class="w-100" (ngSubmit)='submitForm(loginForm)'>
+
+            <h5 *ngIf='true' class="text-white">{{error}}</h5>
+
+
+            <label class="text-white mt-2">Email</label>
+            <input formControlName='email' type="email" class="form form-control bg-transparent">
+            <div *ngIf="loginForm.get('email').errors != null&& loginForm.get('email').touched" class="alert alert-danger">
+                <p *ngIf="loginForm.get('email').errors.required">email required</p>
+                <p *ngIf="loginForm.get('email').errors.email">invalid email</p>
+                
+            </div>
+
+
+            <label class="text-white mt-2">Password</label>
+            <input formControlName='password' type="password" class="form form-control bg-transparent">
+            <div *ngIf="loginForm.get('password').errors != null&& loginForm.get('password').touched" class="alert alert-danger">
+                <p *ngIf="loginForm.get('password').errors.required">password required</p>
+                <p *ngIf="loginForm.get('password').errors.pattern">password must contain chars</p>
+            </div>
+            <button type="submit" [disabled]='loginForm.invalid' class="btn btn-outline-primary float-right mt-4">Submit</button>
+        </form>
+    </div>
+</div>

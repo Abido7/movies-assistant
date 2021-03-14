@@ -1,0 +1,52 @@
+<div class="people py-5">
+    <div class="container py-5">
+        <div class="row py-2 categories" *ngFor="let category of categories; let i = index">
+                <div class="row w-100">
+                    <h2 class="text-white w-100 mb-4 text-center p-2 rounded">
+                        {{category.name}}
+                    </h2>
+                    <div class="col-md-4" *ngFor="let movies of category.known_for; let j = index">
+                        <div class="item">
+                            <img [src]="baseImgUrl+movies.poster_path" [alt]="movies.name||movies.title" class="img-fluid rounded">
+                            <h4 class="text-center pt-1 text-light ">{{movies.title||movies.name}}</h4>
+                            <h6 class="text-center pt-1 text-light">rate: {{movies.vote_average}}</h6>
+                        </div>
+                    </div>  
+                </div>
+        </div> 
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="row">
+    <div class="col-md-3" *ngFor="let category of people; let i = index" (click)="show()">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="item">
+                    <img [src]="baseImgUrl+movie.poster_path" [alt]="movie.name||movie.title" class="img-fluid rounded">
+                    <h6 class="text-center pt-1 text-light ">{{movie.title||movie.name}}</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+
+<!-- <div class="item">
+    <img [src]="baseImgUrl+movie.poster_path" [alt]="movie.name||movie.title" class="img-fluid rounded">
+    <h6 class="text-center pt-1 text-light ">{{movie.title||movie.name}}</h6>
+</div> -->

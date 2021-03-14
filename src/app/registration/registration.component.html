@@ -1,0 +1,53 @@
+<div class="section  d-flex align-items-center justify-content-center py-5">
+    <div class="container form d-flex align-items-center justify-content-center">
+        <form [formGroup]='rgisterForm' class="w-100" (ngSubmit)='submitForm(rgisterForm)'>
+
+            <h5 *ngIf='true' class="text-white">{{error}}</h5>
+
+            <label class="text-white mt-2">First Name</label>
+            <input formControlName='first_name' type="text" class="form form-control bg-transparent">
+            <div *ngIf="rgisterForm.get('first_name').errors != null&& rgisterForm.get('first_name').touched" class="alert alert-danger">
+                <p *ngIf="rgisterForm.get('first_name').errors.required">first name required</p>
+                <p *ngIf="rgisterForm.get('first_name').errors.minlength">min length 3 char</p>
+                <p *ngIf="rgisterForm.get('first_name').errors.maxlength">max length 15</p>
+            </div>
+
+            <label class="text-white mt-2">Last Name</label>
+            <input formControlName='last_name' type="text" class="form form-control bg-transparent">
+            <div *ngIf="rgisterForm.get('last_name').errors != null&& rgisterForm.get('last_name').touched" class="alert alert-danger">
+                <p *ngIf="rgisterForm.get('last_name').errors.required">last name required</p>
+                <p *ngIf="rgisterForm.get('last_name').errors.minlength">min length 3 char</p>
+                <p *ngIf="rgisterForm.get('last_name').errors.maxlength">max length 15</p>
+            </div>
+
+
+            <label class="text-white mt-2">Age</label>
+            <input formControlName='age' type="number" class="form form-control bg-transparent">
+            <div *ngIf="rgisterForm.get('age').errors != null&& rgisterForm.get('age').touched" class="alert alert-danger">
+                <p *ngIf="rgisterForm.get('age').errors.required">age required</p>
+                <p *ngIf="rgisterForm.get('age').errors.min || rgisterForm.get('age').errors.max">age must 10 to 90 years</p>
+            </div>
+
+
+            <label class="text-white mt-2">Email</label>
+            <input formControlName='email' type="email" class="form form-control bg-transparent">
+            <div *ngIf="rgisterForm.get('email').errors != null&& rgisterForm.get('email').touched" class="alert alert-danger">
+                <p *ngIf="rgisterForm.get('email').errors.required">email required</p>
+                <p *ngIf="rgisterForm.get('email').errors.email">invalid email</p>
+                
+            </div>
+
+
+            <label class="text-white mt-2">Password</label>
+            <input formControlName='password' type="password" class="form form-control bg-transparent">
+            <div *ngIf="rgisterForm.get('password').errors != null&& rgisterForm.get('password').touched" class="alert alert-danger">
+                <p *ngIf="rgisterForm.get('password').errors.required">password required</p>
+                <p *ngIf="rgisterForm.get('password').errors.pattern">password must contain chars</p>
+
+            </div>
+
+
+            <button type="submit" [disabled]='rgisterForm.invalid' class="btn btn-outline-primary float-right mt-4">Submit</button>
+        </form>
+    </div>
+</div>

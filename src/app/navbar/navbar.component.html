@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg py-1 w-100 position-fixed top-0" style="z-index: 999999999999;"> 
+    <div class="container-lg px-lg-2">
+        <a class="navbar-brand text-uppercase"><span style="font-size: 25px; font-weight: 700;">M</span>oviestant</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            menu
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="nav-item w-50 mr-lg-0 m-md-auto pl-4">
+                <input type="text" class="form-control w-100 bg-transparent border-0 text-center" placeholder="search...">
+            </div>
+            <ul class="navbar-nav  ml-auto">
+                <li *ngIf='isLogin' class="nav-item mx-4">
+                    <a class=" nav-link text-uppercase " routerLinkActive="current"
+                        routerLink="/movies">movies</a>
+                </li>
+                <li *ngIf='isLogin' class="nav-item mx-4">
+                    <a class=" nav-link text-uppercase" routerLinkActive="current" routerLink="/tv">TV</a>
+                </li>
+                <li *ngIf='isLogin' class="nav-item mx-4">
+                    <a class=" nav-link text-uppercase" routerLinkActive="current" routerLink="/people">people</a>
+                </li>
+                <li *ngIf='!isLogin' class="nav-item mx-2">
+                    <a class=" nav-link text-uppercase btn btn-outline-dark" routerLinkActive="current" routerLink="/login">login</a>
+                </li>
+                <li *ngIf='!isLogin' class="nav-item mx-2">
+                    <a class=" nav-link text-uppercase btn btn-outline-dark" routerLinkActive="current" routerLink="/registration">register</a>
+                </li>
+                <li *ngIf='isLogin' class="nav-item mx-2">
+                    <a class=" nav-link text-uppercase btn btn-outline-dark" (click)="logout()">logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
